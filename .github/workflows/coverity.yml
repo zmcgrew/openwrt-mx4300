@@ -17,3 +17,4 @@ jobs:
       packages: read
       actions: write
     uses: openwrt/actions-shared-workflows/.github/workflows/coverity.yml@main
+    if: false

@@ -75,11 +75,11 @@ jobs:
 
       - name: Build firmware images
         id: buildfirmware
-        run:  make -j$(($(nproc)+1)) world
+        run:  make -j$(($(nproc)+1)) world V=s
 
       - name: Retry build
         if: failure()  && steps.buildfirmware.outcome == 'failure'
-        run:  make clean && sleep 10m && make -j$(($(nproc)+1)) world
+        run:  make clean && sleep 10m && make -j$(($(nproc)+1)) world V=sc
         
       - name: Get build version
         run:  |
